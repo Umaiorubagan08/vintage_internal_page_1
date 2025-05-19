@@ -1,0 +1,349 @@
+/* Basic Reset and Font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f3f4f6;
+  color: #111;
+  font-size: 16px; /* Base font size for better scalability */
+  line-height: 1.5; /* Improved readability */
+}
+
+/* Topbar */
+.topbar {
+  background: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 40px;
+  object-fit: contain;
+}
+
+.welcome-heading {
+  text-align: center;
+  font-size: 1.25rem; /* Using rem for better scalability */
+  margin: 10px 0;
+}
+
+/* Section */
+.section {
+  padding: 15px; /* Slightly increased padding for better spacing */
+}
+
+.section h2 {
+  font-size: 1.125rem; /* Using rem for scalability */
+  margin-bottom: 10px;
+}
+
+/* Counters */
+.counters {
+  display: flex;
+  gap: 15px; /* Increased gap for better spacing on smaller screens */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 200px;
+  color: white;
+  padding: 20px 15px; /* Adjusted padding */
+  text-align: center;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem; /* Using rem */
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for box-shadow as well */
+  background-color: #2a401a; /* Kept your background color */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card .count {
+  font-size: 1.5rem; /* Using rem */
+  margin-top: 5px;
+}
+
+.card.active {
+  outline: 3px solid black;
+  transform: scale(1);
+}
+
+/* Data Table */
+.data-table {
+  background: white;
+  margin-top: 15px; /* Increased margin */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow-x: auto; /* Enable horizontal scrolling for small screens */
+  display: none;
+}
+
+.data-table.active {
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px; /* Slightly increased padding for readability */
+  text-align: left;
+  font-size: 0.875rem; /* Using rem */
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-content {
+  background: white;
+  margin: 15% auto; /* Adjusted margin for better centering on smaller screens */
+  padding: 20px;
+  width: 90%; /* Increased width on smaller screens */
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeSlideUp 0.4s ease-out;
+}
+
+.modal-content h3 {
+  font-size: 1rem; /* Using rem */
+  margin-bottom: 10px;
+}
+
+.modal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  overflow-x: auto; /* Enable horizontal scrolling for modal tables */
+}
+
+.modal-content table,
+.modal-content th,
+.modal-content td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  font-size: 0.75rem; /* Slightly smaller font in modal table */
+}
+
+.modal-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem; /* Using rem */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.25rem; /* Using rem */
+  cursor: pointer;
+}
+
+/* Responsive Design */
+
+/* Larger tablets and desktops (min-width: 1025px) - No significant changes needed from the base styles */
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+  .card {
+    font-size: 0.8125rem; /* Slightly smaller */
+    padding: 18px 10px; /* Adjusted padding */
+  }
+  .card .count {
+    font-size: 1.375rem; /* Slightly smaller */
+  }
+  .section {
+    padding: 10px; /* Adjusted section padding */
+  }
+  .section h2 {
+    font-size: 1rem;
+  }
+  .counters {
+    gap: 10px; /* Adjusted gap */
+  }
+}
+
+/* Smaller tablets and large phones (max-width: 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  .topbar {
+    flex-direction: column;
+    align-items: center; /* Center items in the topbar */
+    text-align: center; /* Center text within the topbar */
+    padding: 10px; /* Adjusted padding */
+  }
+  .logo {
+    height: 35px;
+    margin-bottom: 5px; /* Add a little space below the logo */
+  }
+  .welcome-heading {
+    font-size: 1.125rem;
+    margin: 8px 0;
+  }
+  .section {
+    padding: 10px;
+  }
+  .section h2 {
+    font-size: 0.9375rem;
+    margin-bottom: 8px;
+  }
+  .counters {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card {
+    flex: 0 1 auto; /* Prevent cards from stretching too much */
+    width: 100%; /* Make cards take full width */
+    font-size: 0.75rem;
+    padding: 15px;
+  }
+  .card .count {
+    font-size: 1.25rem;
+  }
+  .data-table {
+    padding: 10px;
+  }
+  table,
+  th,
+  td {
+    font-size: 0.75rem;
+    padding: 6px;
+  }
+  .modal-content {
+    width: 95%;
+    margin: 25% auto; /* Adjust modal margin */
+    padding: 15px;
+  }
+  .modal-content h3 {
+    font-size: 0.9375rem;
+  }
+  .modal-content table,
+  .modal-content th,
+  .modal-content td {
+    font-size: 0.6875rem; /* Even smaller font in modal table */
+    padding: 6px;
+  }
+  .modal-content button {
+    font-size: 0.8125rem;
+    padding: 8px 15px;
+  }
+  .close {
+    font-size: 1.125rem;
+    top: 8px;
+    right: 10px;
+  }
+}
+
+/* Small phones (max-width: 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+  .topbar {
+    padding: 8px;
+  }
+  .logo {
+    height: 30px;
+  }
+  .welcome-heading {
+    font-size: 1rem;
+    margin: 6px 0;
+  }
+  .section {
+    padding: 8px;
+  }
+  .section h2 {
+    font-size: 0.875rem;
+    margin-bottom: 6px;
+  }
+  .card {
+    font-size: 0.6875rem;
+    padding: 12px;
+  }
+  .card .count {
+    font-size: 1.125rem;
+  }
+  .data-table {
+    padding: 8px;
+  }
+  table,
+  th,
+  td {
+    font-size: 0.6875rem;
+    padding: 5px;
+  }
+  .modal-content {
+    padding: 12px;
+    margin: 30% auto; /* Further adjust modal margin */
+  }
+  .modal-content h3 {
+    font-size: 0.875rem;
+  }
+  .modal-content button {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+  .close {
+    font-size: 1rem;
+    top: 6px;
+    right: 8px;
+  }
+}
